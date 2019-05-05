@@ -1,3 +1,5 @@
+/*eslint no-console: off */
+
 const axios = require('axios')
 const fs = require('fs')
 

@@ -1,31 +1,30 @@
 <template>
-  <div id="app">
-    <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-    >
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <header-comp />
+    <link-generator />
+    <footer-comp />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderComp from '@/components/Header'
+import FooterComp from '@/components/Footer'
+import LinkGenerator from '@/components/LinkGenerator'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderComp,
+    FooterComp,
+    LinkGenerator,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+* {
+  font-family: "Noto Sans CJK JP", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
