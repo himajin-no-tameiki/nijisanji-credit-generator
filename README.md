@@ -4,6 +4,10 @@
 ```
 npm install
 ```
+You also have to generate `src/assets/livers.json` through
+```
+npm run fetch-livers
+```
 
 ### Compiles and hot-reloads for development
 ```
