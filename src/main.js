@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import 'bulma/css/bulma.css'  // TODO: only include required parts
+import './bulma-import.sass'
 
 Vue.config.productionTip = false
 
