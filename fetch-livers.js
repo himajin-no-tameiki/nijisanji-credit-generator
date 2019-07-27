@@ -28,7 +28,7 @@ const outPath = './src/assets/livers.json'
   }
   fs.writeFile(outPath, JSON.stringify(liverDetails), err => {
     if (err) {
-      console.log(`Failed to write to ${outPath}`)
+      console.error(`Failed to write to ${outPath}: ${err}`)
       return
     }
     console.log('Successfully fetched livers.json')
