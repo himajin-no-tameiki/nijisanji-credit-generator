@@ -2,9 +2,11 @@
 
 const axios = require('axios')
 const fs = require('fs')
+const fsPromises = fs.promises
 
 const url = 'https://api.itsukaralink.jp/app/livers.json'
-const outPath = './src/assets/livers.json'
+const outPath = './src/assets/'
+const outFilename = 'livers.json'
 
 !(async () => {
   const res = await axios(url, {
@@ -26,11 +28,15 @@ const outPath = './src/assets/livers.json'
     }
     liverDetails.push(detail)
   }
-  fs.writeFile(outPath, JSON.stringify(liverDetails), err => {
-    if (err) {
-      console.error(`Failed to write to ${outPath}: ${err}`)
-      return
-    }
-    console.log('Successfully fetched livers.json')
-  })
+
+  await fsPromises.mkdir(outPath, { recursive: true })
+    .catch(err => {
+      if (err.code !== 'EEXIST') {
+        throw err
+      } 
+    })
+
+  await fsPromises.writeFile(outPath + outFilename, JSON.stringify(liverDetails))
+    .then(() => console.log('Done generating json'))
+    .catch(err => console.error(`Failed to write file: ${err}`))
 })()
